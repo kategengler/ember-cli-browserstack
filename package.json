@@ -1,17 +1,18 @@
 {
   "name": "ember-cli-browserstack",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Cross-browser testing with BrowserStack",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "browserstack"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Katie Gengler",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "kategengler/ember-cli-browserstack",
   "scripts": {
     "build": "ember build",
     "start": "ember serve",
@@ -22,7 +23,6 @@
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
-    "ember-ajax": "^3.0.0",
     "ember-cli": "~2.17.0",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-eslint": "^4.2.1",
