@@ -18,11 +18,15 @@
     "start": "ember serve",
     "test": "ember try:each"
   },
+  "bin": {
+    "browserstack-launch": "lib/tasks/launch-browserstack-browser.js"
+  },
   "dependencies": {
     "browserstack": "^1.5.0",
     "browserstack-local": "^1.3.0",
     "ember-cli-babel": "^6.6.0",
-    "rsvp": "^4.7.0"
+    "rsvp": "^4.7.0",
+    "yargs": "^10.0.3"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
