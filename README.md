@@ -19,8 +19,8 @@ Facilitates automated testing using BrowserStack with ember-cli projects
 1. Register for a BrowserStack account
 1. Set environment variables `BROWSERSTACK_USERNAME` and `BROWSERSTACK_ACCESS_KEY`
 1. Add browsers to your `testem.js`. You can see available browsers by running `ember browserstack:browsers`
-    
-    For example: 
+
+    For example:
     ```
     launchers: {
       bs_edge: {
@@ -40,16 +40,21 @@ Facilitates automated testing using BrowserStack with ember-cli projects
     ]
     ```
     To see available options, run `npx browserstack-launch --help`, with more info about what those options do available https://www.browserstack.com/automate/capabilities and https://github.com/scottgonzalez/node-browserstack#browser-objects
-1. Open a tunnel to BrowserStack using `ember browserstack:connect`. 
-    
+1. Open a tunnel to BrowserStack using `ember browserstack:connect`.
+
     This will create a `browserstack-local.pid` file, necessary for later disconnecting the tunnel.
 1. Run tests (`ember test`)
 1. When tests are complete, close the tunnel to BrowserStack using `ember browserstack:disconnect`
 
 ## Running on TravisCI
 
-When running on TravisCI, this addon will use the `TRAVIS_JOB_NUMBER` environment variable to group the browsers run in that job. 
-There is a helper command `ember browserstack:results` that will return links to each of the test runs in BrowserStack. 
+When running on TravisCI, this addon will use the `TRAVIS_JOB_NUMBER` environment variable to group the browsers run in that job.
+There is a helper command `ember browserstack:results` that will return links to each of the test runs in BrowserStack.
+
+## Running on Bitbucket Pipelines
+
+When running on Bitbucket Pipelines, this addon will use the `BITBUCKET_BUILD_NUMBER` environment variable to group the browsers run in that job.
+There is a helper command `ember browserstack:results` that will return links to each of the test runs in BrowserStack.
 
 ## Developing
 
