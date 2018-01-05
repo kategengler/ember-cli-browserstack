@@ -61,5 +61,7 @@ There is a helper command `ember browserstack:results` that will return links to
 
 ## Thanks
 
+Thanks to [BrowserStack](http://browserstack.com) for providing an open-source account for testing & development!
+
 This addon is based on [ember-cli-sauce](https://github.com/johanneswuerbach/ember-cli-sauce) and [testem-browserstack](https://github.com/browserstack/testem-browserstack).
 It also relies upon [node-browserstack](https://github.com/scottgonzalez/node-browserstack) and [browserstack-local-nodejs](https://github.com/browserstack/browserstack-local-nodejs).
