@@ -56,6 +56,10 @@ There is a helper command `ember browserstack:results` that will return links to
 When running on Bitbucket Pipelines, this addon will use the `BITBUCKET_BUILD_NUMBER` environment variable to group the browsers run in that job.
 There is a helper command `ember browserstack:results` that will return links to each of the test runs in BrowserStack.
 
+## Build name
+
+The above will be prefixed with the env var BROWSERSTACK_BUILD_NAME_PREFIX, if set. 
+
 ## Developing
 
 * `git clone <repository-url>` this repository
