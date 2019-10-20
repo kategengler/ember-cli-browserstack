@@ -55,11 +55,22 @@
     "ember-try": "^1.2.1",
     "eslint-plugin-ember": "^7.1.0",
     "eslint-plugin-node": "^10.0.0",
+    "lerna-changelog": "^0.8.2",
     "loader.js": "^4.7.0",
     "qunit-dom": "^0.9.0"
   },
   "engines": {
     "node": "8.* || >= 10.*"
+  },
+  "changelog": {
+    "repo": "kategengler/ember-cli-browserstack",
+    "labels": {
+      "breaking": ":boom: Breaking Change",
+      "enhancement": ":rocket: Enhancement",
+      "bug": ":bug: Bug Fix",
+      "documentation": ":memo: Documentation",
+      "internal": ":house: Internal"
+    }
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
