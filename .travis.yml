@@ -34,7 +34,7 @@ install:
 
 script:
   - ember browserstack:connect
-  - ember test
+  - ember test --host 127.0.0.1
   - ember browserstack:results
 
 after_script:

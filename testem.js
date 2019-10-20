@@ -1,9 +1,9 @@
-/* eslint-env node */
 module.exports = {
   test_page: 'tests/index.html?hidepassed',
   disable_watching: true,
   browser_start_timeout: 2000,
   browser_disconnect_timeout: 120,
+  parallel: 5,
   launchers: {
     BS_Chrome_Current: {
       exe: 'lib/tasks/launch-browserstack-browser.js',
@@ -108,13 +108,16 @@ module.exports = {
   ],
   browser_args: {
     Chrome: {
-      mode: 'ci',
-      args: [
-        '--disable-gpu',
+      ci: [
+        // --no-sandbox is needed when running Chrome inside a container
+        process.env.CI ? '--no-sandbox' : null,
         '--headless',
+        '--disable-dev-shm-usage',
+        '--disable-software-rasterizer',
+        '--mute-audio',
         '--remote-debugging-port=0',
-        '--window-size=1440,900',
-      ],
-    },
-  },
+        '--window-size=1440,900'
+      ].filter(Boolean)
+    }
+  }
 };
