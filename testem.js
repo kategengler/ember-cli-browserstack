@@ -2,42 +2,109 @@
 module.exports = {
   test_page: 'tests/index.html?hidepassed',
   disable_watching: true,
+  browser_start_timeout: 2000,
+  browser_disconnect_timeout: 120,
   launchers: {
     BS_Chrome_Current: {
-      exe: "node_modules/.bin/browserstack-launch",
-      args: ["--os", "Windows", "--osv", "10", "--b", "chrome", "--bv", "latest", "--u", "<url>"],
-      protocol: "browser"
+      exe: 'lib/tasks/launch-browserstack-browser.js',
+      args: [
+        '--os',
+        'Windows',
+        '--osv',
+        '10',
+        '--b',
+        'chrome',
+        '--bv',
+        'latest',
+        '-t',
+        '1200',
+        '--u',
+        '<url>',
+      ],
+      protocol: 'browser',
     },
     BS_Firefox_Current: {
-      exe: "node_modules/.bin/browserstack-launch",
-      args: ["--os", "Windows", "--osv", "10", "--b", "firefox", "--bv", "latest", "--u", "<url>"],
-      protocol: "browser"
+      exe: 'lib/tasks/launch-browserstack-browser.js',
+      args: [
+        '--os',
+        'Windows',
+        '--osv',
+        '10',
+        '--b',
+        'firefox',
+        '--bv',
+        'latest',
+        '-t',
+        '1200',
+        '--u',
+        '<url>',
+      ],
+      protocol: 'browser',
     },
     BS_Safari_Current: {
-      exe: "node_modules/.bin/browserstack-launch",
-      args: ["--os", "OS X", "--osv", "High Sierra", "--b", "safari", "--bv", "11", "--u", "<url>"],
-      protocol: "browser"
+      exe: 'lib/tasks/launch-browserstack-browser.js',
+      args: [
+        '--os',
+        'OS X',
+        '--osv',
+        'Mojave',
+        '--b',
+        'safari',
+        '--bv',
+        'latest',
+        '-t',
+        '1200',
+        '--u',
+        '<url>',
+      ],
+      protocol: 'browser',
     },
     BS_MS_Edge: {
-      exe: "node_modules/.bin/browserstack-launch",
-      args: ["--os", "Windows", "--osv", "10", "--b", "edge", "--bv", "latest", "--u", "<url>"],
-      protocol: "browser"
+      exe: 'lib/tasks/launch-browserstack-browser.js',
+      args: [
+        '--os',
+        'Windows',
+        '--osv',
+        '10',
+        '--b',
+        'edge',
+        '--bv',
+        'latest',
+        '-t',
+        '1200',
+        '--u',
+        '<url>',
+      ],
+      protocol: 'browser',
     },
     BS_IE_11: {
-      exe: "node_modules/.bin/browserstack-launch",
-      args: ["--os", "Windows", "--osv", "10", "--b", "ie", "--bv", "11.0", "--u", "<url>"],
-      protocol: "browser"
-    }
+      exe: 'lib/tasks/launch-browserstack-browser.js',
+      args: [
+        '--os',
+        'Windows',
+        '--osv',
+        '10',
+        '--b',
+        'ie',
+        '--bv',
+        '11.0',
+        '-t',
+        '1500',
+        '--u',
+        '<url>',
+      ],
+      protocol: 'browser',
+    },
   },
   launch_in_dev: [
-    'Chrome'
+    'Chrome',
   ],
   launch_in_ci: [
-    "BS_Chrome_Current",
-    "BS_Firefox_Current",
-    "BS_Safari_Current",
-    "BS_MS_Edge",
-    "BS_IE_11"
+    'BS_Chrome_Current',
+    'BS_Firefox_Current',
+    'BS_Safari_Current',
+    'BS_MS_Edge',
+    'BS_IE_11',
   ],
   browser_args: {
     Chrome: {
@@ -46,8 +113,8 @@ module.exports = {
         '--disable-gpu',
         '--headless',
         '--remote-debugging-port=0',
-        '--window-size=1440,900'
-      ]
-    }
-  }
+        '--window-size=1440,900',
+      ],
+    },
+  },
 };

@@ -33,4 +33,5 @@ script:
   - ember test
 
 after_script:
+  - ember browserstack:results
   - ember browserstack:disconnect
