@@ -22,8 +22,8 @@
     "browserstack-launch": "lib/tasks/launch-browserstack-browser.js"
   },
   "dependencies": {
-    "browserstack": "^1.5.0",
-    "browserstack-local": "^1.3.0",
+    "browserstack": "^1.5.3",
+    "browserstack-local": "^1.4.2",
     "rsvp": "^4.7.0",
     "yargs": "^10.0.3"
   },
