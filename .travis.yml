@@ -31,7 +31,7 @@ install:
 script:
   - ember browserstack:connect
   - ember test
+  - ember browserstack:results
 
 after_script:
-  - ember browserstack:results
   - ember browserstack:disconnect
