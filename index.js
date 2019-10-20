@@ -1,8 +1,7 @@
-/* eslint-env node */
 'use strict';
 
 module.exports = {
-  name: 'ember-cli-browserstack',
+  name: require('./package').name,
   includedCommands: function() {
     return require('./lib/commands');
   }
