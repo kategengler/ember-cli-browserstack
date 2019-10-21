@@ -27,22 +27,24 @@ Facilitates automated testing using BrowserStack with ember-cli projects
     ```
     launchers: {
       bs_edge: {
-        exe: "npx browserstack-launch",
-        args: ["--os", "Windows", "--osv", "10", "--b", "edge", "--bv", "16.0", "--u"],
-        protocol: "browser"
+        exe: 'npx browserstack-launch',
+        args: ['--os', 'Windows', '--osv', '10', '--b', 'edge', '--bv', 'latest', '-t', '1200', '-p',
+        'my-project-name', '--u', '<url>'],
+        protocol: 'browser'
       },
       bs_chrome: {
-        exe: "node_modules/.bin/browserstack-launch",
-        args: ["--os", "Windows", "--osv", "10", "--b", "chrome", "--bv", "latest", "-t", "600", "--u"],
-        protocol: "browser"
+        exe: 'node_modules/.bin/browserstack-launch',
+        args: ['--os', 'Windows', '--osv', '10', '--b', 'chrome', '--bv', 'latest', '-t', '600', '-p', 'my-project-name', '--u', '<url>'],
+        protocol: 'browser'
       }
     },
     launch_in_ci: [
-      "bs_edge",
-      "Chrome"
+      'bs_edge',
+      'Chrome'
     ]
     ```
-    To see available options, run `npx browserstack-launch --help`, with more info about what those options do available https://www.browserstack.com/automate/capabilities and https://github.com/scottgonzalez/node-browserstack#browser-objects
+    To see available options, run `npx browserstack-launch --help`, with more info about what those options do available here: https://www.browserstack.com/automate/capabilities and https://github.com/scottgonzalez/node-browserstack#browser-objects
+    Not all options are required.
 1. Open a tunnel to BrowserStack using `ember browserstack:connect`.
 
     This will create a `browserstack-local.pid` file, necessary for later disconnecting the tunnel.
