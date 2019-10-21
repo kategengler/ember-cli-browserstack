@@ -4,6 +4,8 @@
 
 Facilitates automated testing using BrowserStack with ember-cli projects
 
+As of October 21, 2019, version 0.0.8 is the minimum version that will work with BrowserStack, due to API host changes. 
+
 ## Commands
 
 ### `ember browserstack:connect`
