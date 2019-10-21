@@ -27,7 +27,7 @@ Facilitates automated testing using BrowserStack with ember-cli projects
     ```
     launchers: {
       bs_edge: {
-        exe: 'npx browserstack-launch',
+        exe: 'npx ember-cli-browserstack',
         args: ['--os', 'Windows', '--osv', '10', '--b', 'edge', '--bv', 'latest', '-t', '1200', '-p',
         'my-project-name', '--u', '<url>'],
         protocol: 'browser'
