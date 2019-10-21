@@ -1,4 +1,7 @@
 # ember-cli-browserstack
+[![Build Status](https://travis-ci.com/kategengler/ember-cli-browserstack.svg?branch=master)](https://travis-ci.com/kategengler/ember-cli-browserstack)
+[![BrowserStack Status](https://automate.browserstack.com/badge.svg?badge_key=RmFGTjdPRlZ4cm1zNjlsb3FFL0YzTmxGcERoUU51ZWR6cldHSUhNZzhWQT0tLTYzYlRCQmxSdlNwZXB5OENsOWhmd3c9PQ==--3bd648a1c454a88bf7bc65c588f657cd1adef2dd%)](https://automate.browserstack.com/public-build/RmFGTjdPRlZ4cm1zNjlsb3FFL0YzTmxGcERoUU51ZWR6cldHSUhNZzhWQT0tLTYzYlRCQmxSdlNwZXB5OENsOWhmd3c9PQ==--3bd648a1c454a88bf7bc65c588f657cd1adef2dd%)
+
 Facilitates automated testing using BrowserStack with ember-cli projects
 
 ## Commands
