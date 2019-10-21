@@ -29,8 +29,8 @@
     "browserstack": "^1.5.3",
     "browserstack-local": "^1.4.2",
     "ember-cli-htmlbars": "^4.0.0",
-    "rsvp": "^4.7.0",
-    "yargs": "^10.0.3"
+    "rsvp": "^4.8.5",
+    "yargs": "^14.2.0"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.0.0",
