@@ -44,6 +44,7 @@ Facilitates automated testing using BrowserStack with ember-cli projects
 
     This will create a `browserstack-local.pid` file, necessary for later disconnecting the tunnel.
 1. Run tests (`ember test`)
+    You may need to specify `--host 127.0.0.1` to support Safari
 1. When tests are complete, close the tunnel to BrowserStack using `ember browserstack:disconnect`
 
 ## Running on TravisCI

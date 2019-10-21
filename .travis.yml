@@ -33,6 +33,8 @@ install:
   - yarn install --no-lockfile --non-interactive
 
 script:
+  - yarn lint:js
+  - yarn test:node
   - ember browserstack:connect
   - ember test --host 127.0.0.1
   - ember browserstack:results
