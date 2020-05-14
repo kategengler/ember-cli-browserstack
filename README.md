@@ -66,7 +66,16 @@ There is a helper command `ember browserstack:results` that will return links to
 
 ## Build name
 
-The above will be prefixed with the env var BROWSERSTACK_BUILD_NAME_PREFIX, if set. 
+The above will be prefixed with the env var BROWSERSTACK_BUILD_NAME_PREFIX, if set.
+
+## Configuring Browserstack `local identifier`
+
+_In most cases you don't need to do anything with default setup._
+_However if you are building custom matrix build CI pipeline, then you need to tell Browserstack where each instance is for its routing to work._
+
+In case you need to setup custom value for `local identifier`, you can set `BROWSERSTACK_LOCAL_IDENTIFIER` env var.
+
+_See for more information: https://www.browserstack.com/local-testing/automate#multiple-local-testing-connections_
 
 ## Developing
 
