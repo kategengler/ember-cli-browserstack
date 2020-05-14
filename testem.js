@@ -1,3 +1,5 @@
+'use strict';
+
 const ProjectName = process.env.CI ? 'ember-cli-browserstack' : 'local-testing';
 const BrowserStackLaunchers = {
   BS_Chrome_Current: {
