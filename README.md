@@ -1,6 +1,6 @@
 # ember-cli-browserstack
 [![Build Status](https://travis-ci.com/kategengler/ember-cli-browserstack.svg?branch=master)](https://travis-ci.com/kategengler/ember-cli-browserstack)
-[![BrowserStack Status](https://automate.browserstack.com/badge.svg?badge_key=RmFGTjdPRlZ4cm1zNjlsb3FFL0YzTmxGcERoUU51ZWR6cldHSUhNZzhWQT0tLTYzYlRCQmxSdlNwZXB5OENsOWhmd3c9PQ==--3bd648a1c454a88bf7bc65c588f657cd1adef2dd%)](https://automate.browserstack.com/public-build/RmFGTjdPRlZ4cm1zNjlsb3FFL0YzTmxGcERoUU51ZWR6cldHSUhNZzhWQT0tLTYzYlRCQmxSdlNwZXB5OENsOWhmd3c9PQ==--3bd648a1c454a88bf7bc65c588f657cd1adef2dd%)
+[![BrowserStack Status](https://automate.browserstack.com/badge.svg?badge_key=bmFTejltaG1DRnNGT2RJa0F2bnZSbUczd2Uyc1lBS05GZFNwMEFkNlFHQT0tLTRwT0xhL0xRSG1NZGpNVnJOUUdxaGc9PQ==--13333fca0d5a32e7e5a0a22366dab3f3018e0b79%)](https://automate.browserstack.com/public-build/bmFTejltaG1DRnNGT2RJa0F2bnZSbUczd2Uyc1lBS05GZFNwMEFkNlFHQT0tLTRwT0xhL0xRSG1NZGpNVnJOUUdxaGc9PQ==--13333fca0d5a32e7e5a0a22366dab3f3018e0b79%)
 
 Facilitates automated testing using BrowserStack with ember-cli projects
 
