@@ -64,7 +64,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: yarn install --frozen-lockfile --non-interactive
-      - run: npx ember browserstack:connect
-      - run: npx ember test --host 127.0.0.1
-      - run: npx ember browserstack:results
-      - run: npx ember browserstack:disconnect
+      - run: yarn browserstack:connect
+      - run: yarn test:ember:browserstack
+      - run: yarn browserstack:results
+      - run: yarn browserstack:disconnect

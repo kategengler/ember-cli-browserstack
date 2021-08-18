@@ -30,6 +30,7 @@ module.exports = {
         'ember-cli-build.js',
         'index.js',
         'testem.js',
+        'testem.browserstack.js',
         'blueprints/*/index.js',
         'config/**/*.js',
         'lib/**/*.js',
@@ -56,6 +57,11 @@ module.exports = {
       // Test files:
       files: ['tests/**/*-test.{js,ts}'],
       extends: ['plugin:qunit/recommended'],
+    },
+    {
+      files: ['node-tests/**/*.js'],
+      plugins: ['mocha'],
+      extends: ['plugin:mocha/recommended'],
     },
   ],
 };

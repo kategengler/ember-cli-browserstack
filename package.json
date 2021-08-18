@@ -24,15 +24,20 @@
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
+    "test:ember:browserstack": "ember test --test-port=7774 --host=127.0.0.1 --config-file=testem.browserstack.js",
+    "test:browserstack": "npm-run-all browserstack:connect test:ember:browserstack browserstack:disconnect browserstack:results",
     "test:ember-compatibility": "ember try:each",
-    "test:node": "mocha node-tests/**/*-test.js"
+    "test:node": "mocha node-tests/**/*-test.js",
+    "browserstack:connect": "ember browserstack:connect",
+    "browserstack:disconnect": "ember browserstack:disconnect",
+    "browserstack:results": "ember browserstack:results"
   },
   "bin": {
     "browserstack-launch": "lib/tasks/launch-browserstack-browser.js"
   },
   "dependencies": {
-    "browserstack": "^1.6.0",
-    "browserstack-local": "^1.4.5",
+    "browserstack": "^1.6.1",
+    "browserstack-local": "^1.4.8",
     "rsvp": "^4.8.5",
     "yargs": "^15.3.1"
   },
@@ -75,7 +80,8 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.0",
     "qunit": "^2.15.0",
-    "qunit-dom": "^1.6.0"
+    "qunit-dom": "^1.6.0",
+    "eslint-plugin-mocha": "^9.0.0"
   },
   "engines": {
     "node": "10.* || >= 12"
