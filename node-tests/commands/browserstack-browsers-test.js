@@ -1,9 +1,9 @@
 const execa = require('execa');
 const { assert } = require('chai');
 
-describe('ember browserstack:browsers', function() {
+describe('ember browserstack:browsers', function () {
   this.timeout(5000);
-  it('lists all browsers', async function() {
+  it('lists all browsers', async function () {
     let { stdout } = await execa('ember', ['browserstack:browsers']);
     let browsers = JSON.parse(stdout);
     assert.ok(browsers.length);
@@ -13,7 +13,7 @@ describe('ember browserstack:browsers', function() {
       'browser',
       'device',
       'browser_version',
-      'real_mobile'
+      'real_mobile',
     ]);
   });
 });

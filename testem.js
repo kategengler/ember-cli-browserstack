@@ -111,9 +111,7 @@ module.exports = {
   browser_disconnect_timeout: 120,
   parallel: 5,
   launchers: BrowserStackLaunchers,
-  launch_in_dev: [
-    'Chrome',
-  ],
+  launch_in_dev: ['Chrome'],
   launch_in_ci: Object.keys(BrowserStackLaunchers),
   browser_args: {
     Chrome: {
@@ -125,8 +123,8 @@ module.exports = {
         '--disable-software-rasterizer',
         '--mute-audio',
         '--remote-debugging-port=0',
-        '--window-size=1440,900'
-      ].filter(Boolean)
-    }
-  }
+        '--window-size=1440,900',
+      ].filter(Boolean),
+    },
+  },
 };
