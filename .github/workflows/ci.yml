@@ -57,6 +57,9 @@ jobs:
       # This is in plaintext on purpose. It has no privileged access to anything
       # and allows us to run BrowserStack on pull-requests
       BROWSERSTACK_ACCESS_KEY: aeqUXusvriNdmYFQpbrj
+      # The following is necessary when using browserstack under matrix builds on Github Actions
+      # The Job ID + Run ID isn't unique across matrix runs and will fail when run simultaneously
+      BROWSERSTACK_BUILD_NAME_PREFIX: ${{ matrix.node-version }}
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
