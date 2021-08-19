@@ -1,6 +1,11 @@
 # CHANGELOG
 
 
+## v2.0.1 (2021-08-19)
+
+- Fix release #fail
+
+
 ## v2.0.0 (2021-08-19)
 
 #### :boom: Breaking Change
