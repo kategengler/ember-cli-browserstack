@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request: { }
+
+env:
+  CI: true
+
+jobs:
+  lint:
+    name: "Lint"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile --non-interactive
+      - name: Lint
+        run: yarn lint
+
+  node-test:
+    name: "Node Test"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: yarn install --frozen-lockfile --non-interactive
+      - name: Node Tests
+        env:
+          BROWSERSTACK_USERNAME: emberclibrowsersDv86d
+          # This is in plaintext on purpose. It has no privileged access to anything
+          # and allows us to run BrowserStack on pull-requests
+          BROWSERSTACK_ACCESS_KEY: aeqUXusvriNdmYFQpbrj
+        run: yarn test:node
+
+  smoke-test:
+    name: "Smoke Test"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x]
+    env:
+      BROWSERSTACK_USERNAME: emberclibrowsersDv86d
+      # This is in plaintext on purpose. It has no privileged access to anything
+      # and allows us to run BrowserStack on pull-requests
+      BROWSERSTACK_ACCESS_KEY: aeqUXusvriNdmYFQpbrj
+      # The following is necessary when using browserstack under matrix builds on Github Actions
+      # The Job ID + Run ID isn't unique across matrix runs and will fail when run simultaneously
+      BROWSERSTACK_BUILD_NAME_PREFIX: ${{ matrix.node-version }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: yarn install --frozen-lockfile --non-interactive
+      - run: yarn browserstack:connect
+      - run: yarn test:ember:browserstack
+      - run: yarn browserstack:results
+      - run: yarn browserstack:disconnect
