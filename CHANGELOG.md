@@ -1,5 +1,22 @@
 # CHANGELOG
 
+
+## v2.0.0 (2021-08-19)
+
+#### :boom: Breaking Change
+* [#52](https://github.com/kategengler/ember-cli-browserstack/pull/52) Drop support for Node 10; upgrade packages and move to GitHub Actions ([@kategengler](https://github.com/kategengler))
+
+#### :bug: Bug Fix
+* [#40](https://github.com/kategengler/ember-cli-browserstack/pull/40) fix(connect): fix pid file creation for newer versions of node ([@anehx](https://github.com/anehx))
+
+#### :house: Internal
+* [#53](https://github.com/kategengler/ember-cli-browserstack/pull/53) Upgrade various deps and configure ReleaseIt ([@kategengler](https://github.com/kategengler))
+
+#### Committers: 2
+- Jonas Metzener ([@anehx](https://github.com/anehx))
+- Katie Gengler ([@kategengler](https://github.com/kategengler))
+
+
 ## v1.1.0 (May 14, 2020)
 
 - [#27](https://github.com/kategengler/ember-cli-browserstack/pull/27) Add support for BROWSERSTACK_LOCAL_IDENTIFIER env variable
