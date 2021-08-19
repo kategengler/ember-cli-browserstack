@@ -9,6 +9,9 @@
   "repository": "kategengler/ember-cli-browserstack",
   "license": "MIT",
   "author": "Katie Gengler",
+  "bin": {
+    "browserstack-launch": "lib/tasks/launch-browserstack-browser.js"
+  },
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -31,9 +34,6 @@
     "browserstack:connect": "ember browserstack:connect",
     "browserstack:disconnect": "ember browserstack:disconnect",
     "browserstack:results": "ember browserstack:results"
-  },
-  "bin": {
-    "browserstack-launch": "lib/tasks/launch-browserstack-browser.js"
   },
   "dependencies": {
     "browserstack": "^1.6.1",
@@ -80,10 +80,15 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.0",
     "qunit": "^2.15.0",
-    "qunit-dom": "^1.6.0"
+    "qunit-dom": "^1.6.0",
+    "release-it": "^14.2.1",
+    "release-it-lerna-changelog": "^3.1.0"
   },
   "engines": {
     "node": "10.* || >= 12"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "changelog": {
     "repo": "kategengler/ember-cli-browserstack",
@@ -100,5 +105,20 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
+  },
+  "release-it": {
+    "plugins": {
+      "release-it-lerna-changelog": {
+        "infile": "CHANGELOG.md",
+        "launchEditor": true
+      }
+    },
+    "git": {
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true,
+      "tokenRef": "GITHUB_AUTH"
+    }
   }
 }
