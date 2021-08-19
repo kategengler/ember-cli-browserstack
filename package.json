@@ -69,10 +69,11 @@
     "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-ember": "^10.4.2",
+    "eslint-plugin-mocha": "^9.0.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-qunit": "^6.1.1",
-    "execa": "^4.0.1",
+    "execa": "^5.1.1",
     "lerna-changelog": "^1.0.1",
     "loader.js": "^4.7.0",
     "mocha": "^7.1.2",
@@ -80,8 +81,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.0",
     "qunit": "^2.15.0",
-    "qunit-dom": "^1.6.0",
-    "eslint-plugin-mocha": "^9.0.0"
+    "qunit-dom": "^1.6.0"
   },
   "engines": {
     "node": "10.* || >= 12"
