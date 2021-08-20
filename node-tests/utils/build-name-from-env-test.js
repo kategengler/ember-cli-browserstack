@@ -24,34 +24,40 @@ describe('buildNameFromEnv', function () {
   });
 
   it('builds a build name from GitHub Actions env vars', async function () {
-    process.env.GITHUB_RUN_ID = '212';
-    process.env.GITHUB_REF = 'refs/heads/feature-branch-1';
-    process.env.GITHUB_WORKFLOW = 'ci';
-    process.env.GITHUB_JOB = 'test';
+    // Can only be tested not under GitHub Actions
+    if (!process.env.CI) {
+      process.env.GITHUB_RUN_ID = '212';
+      process.env.GITHUB_REF = 'refs/heads/feature-branch-1';
+      process.env.GITHUB_WORKFLOW = 'ci';
+      process.env.GITHUB_JOB = 'test';
 
-    let result = buildNameFromEnv();
-    assert.equal(result, 'feature-branch-1_ci_212_test');
+      let result = buildNameFromEnv();
+      assert.equal(result, 'feature-branch-1_ci_212_test');
 
-    delete process.env.GITHUB_RUN_ID;
-    delete process.env.GITHUB_REF;
-    delete process.env.GITHUB_WORKFLOW;
-    delete process.env.GITHUB_JOB;
+      delete process.env.GITHUB_RUN_ID;
+      delete process.env.GITHUB_REF;
+      delete process.env.GITHUB_WORKFLOW;
+      delete process.env.GITHUB_JOB;
+    }
   });
 
   it('builds a build name from GitHub Actions env vars in a pull request', async function () {
-    process.env.GITHUB_RUN_ID = '212';
-    process.env.GITHUB_REF = 'refs/pulls/123/merge';
-    process.env.GITHUB_HEAD_REF = 'refs/heads/feature-branch-1';
-    process.env.GITHUB_WORKFLOW = 'ci';
-    process.env.GITHUB_JOB = 'test';
+    // Can only be tested not under GitHub Actions
+    if (!process.env.CI) {
+      process.env.GITHUB_RUN_ID = '212';
+      process.env.GITHUB_REF = 'refs/pulls/123/merge';
+      process.env.GITHUB_HEAD_REF = 'refs/heads/feature-branch-1';
+      process.env.GITHUB_WORKFLOW = 'ci';
+      process.env.GITHUB_JOB = 'test';
 
-    let result = buildNameFromEnv();
-    assert.equal(result, 'PR_123_ci_212_test');
+      let result = buildNameFromEnv();
+      assert.equal(result, 'PR_123_ci_212_test');
 
-    delete process.env.GITHUB_RUN_ID;
-    delete process.env.GITHUB_REF;
-    delete process.env.GITHUB_HEAD_REF;
-    delete process.env.GITHUB_WORKFLOW;
-    delete process.env.GITHUB_JOB;
+      delete process.env.GITHUB_RUN_ID;
+      delete process.env.GITHUB_REF;
+      delete process.env.GITHUB_HEAD_REF;
+      delete process.env.GITHUB_WORKFLOW;
+      delete process.env.GITHUB_JOB;
+    }
   });
 });
