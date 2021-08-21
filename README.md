@@ -4,8 +4,6 @@
 
 Facilitates automated testing using BrowserStack with ember-cli projects
 
-As of October 21, 2019, version 0.0.8 is the minimum version that will work with BrowserStack, due to API host changes. 
-
 ## Commands
 
 ### `ember browserstack:connect`
@@ -45,28 +43,22 @@ As of October 21, 2019, version 0.0.8 is the minimum version that will work with
       'Chrome'
     ]
     ```
-    To see available options, run `npx browserstack-launch --help`, with more info about what those options do available here: https://www.browserstack.com/automate/capabilities and https://github.com/scottgonzalez/node-browserstack#browser-objects
+    To see available options run `npx ember-cli-browserstack --help` or see https://www.browserstack.com/automate/capabilities and https://github.com/scottgonzalez/node-browserstack#browser-objects
     Not all options are required.
 1. Open a tunnel to BrowserStack using `ember browserstack:connect`.
 
     This will create a `browserstack-local.pid` file, necessary for later disconnecting the tunnel.
 1. Run tests (`ember test`)
-    You may need to specify `--host 127.0.0.1` to support Safari
+    You may need to specify `--host 127.0.0.1` and `--test-port=7774` to support Safari
 1. When tests are complete, close the tunnel to BrowserStack using `ember browserstack:disconnect`
-
-## Running on TravisCI
-
-When running on TravisCI, this addon will use the `TRAVIS_JOB_NUMBER` environment variable to group the browsers run in that job.
-There is a helper command `ember browserstack:results` that will return links to each of the test runs in BrowserStack.
-
-## Running on Bitbucket Pipelines
-
-When running on Bitbucket Pipelines, this addon will use the `BITBUCKET_BUILD_NUMBER` environment variable to group the browsers run in that job.
-There is a helper command `ember browserstack:results` that will return links to each of the test runs in BrowserStack.
 
 ## Build name
 
-The above will be prefixed with the env var BROWSERSTACK_BUILD_NAME_PREFIX, if set.
+The build name can be set by passing it to each launcher (`--build`) or by setting the environment variable `BROWSERSTACK_BUILD_NAME`.
+If no build name is passed it will be [determined by CI Environment variables](https://github.com/kategengler/ember-cli-browserstack/blob/main/lib/utils/build-name-from-env.js), falling back to a random value.
+The build name can be prefixed by setting `BROWSERSTACK_BUILD_NAME_PREFIX`.
+
+The name is used for grouping runs in the BrowserStack UI and to fetch results.
 
 ## Configuring Browserstack `local identifier`
 
@@ -74,6 +66,10 @@ _In most cases you don't need to do anything with default setup._
 _However if you are building custom matrix build CI pipeline, then you need to tell Browserstack where each instance is for its routing to work._
 
 In case you need to setup custom value for `local identifier`, you can set `BROWSERSTACK_LOCAL_IDENTIFIER` env var.
+If the env var is not set, this addon attempts to set a smart value for the local identifier based on the build name.
+You can append to this smart value by setting `BROWSERSTACK_LOCAL_ID_SUFFIX`.
+
+See, for example, the GitHub Actions setup in this repository.
 
 _See for more information: https://www.browserstack.com/local-testing/automate#multiple-local-testing-connections_
 
