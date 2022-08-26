@@ -60,4 +60,22 @@ describe('buildNameFromEnv', function () {
       delete process.env.GITHUB_JOB;
     }
   });
+
+  it('replaces spaces in workflow name', async function () {
+    // Can only be tested not under GitHub Actions
+    if (!process.env.CI) {
+      process.env.GITHUB_RUN_ID = '212';
+      process.env.GITHUB_REF = 'refs/heads/feature-branch-1';
+      process.env.GITHUB_WORKFLOW = 'spacey ci';
+      process.env.GITHUB_JOB = 'test';
+
+      let result = buildNameFromEnv();
+      assert.equal(result, 'feature-branch-1_spacey_ci_212_test');
+
+      delete process.env.GITHUB_RUN_ID;
+      delete process.env.GITHUB_REF;
+      delete process.env.GITHUB_WORKFLOW;
+      delete process.env.GITHUB_JOB;
+    }
+  });
 });
