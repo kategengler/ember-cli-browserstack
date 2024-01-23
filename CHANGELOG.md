@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+
+## v2.1.0 (2024-01-23)
+
+#### :rocket: Enhancement
+* [#73](https://github.com/kategengler/ember-cli-browserstack/pull/73) Add debug; refactor a bit to make it easier ([@kategengler](https://github.com/kategengler))
+
+#### :bug: Bug Fix
+* [#74](https://github.com/kategengler/ember-cli-browserstack/pull/74) Fix build names for tags ([@kategengler](https://github.com/kategengler))
+
+#### Committers: 1
+- Katie Gengler ([@kategengler](https://github.com/kategengler))
+
+
 ## v2.0.2 (2024-01-23)
 
 - [#66](https://github.com/kategengler/ember-cli-browserstack/pull/66) Replace spaces in github workflow names (@jrjohnson)
