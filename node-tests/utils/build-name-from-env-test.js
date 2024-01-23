@@ -41,41 +41,52 @@ describe('buildNameFromEnv', function () {
     }
   });
 
-  it('builds a build name from GitHub Actions env vars in a pull request', async function () {
-    // Can only be tested not under GitHub Actions
-    if (!process.env.CI) {
-      process.env.GITHUB_RUN_ID = '212';
-      process.env.GITHUB_REF = 'refs/pulls/123/merge';
-      process.env.GITHUB_HEAD_REF = 'refs/heads/feature-branch-1';
-      process.env.GITHUB_WORKFLOW = 'ci';
-      process.env.GITHUB_JOB = 'test';
+  describe('_githubRunDesc', function () {
+    it('uses PR number when headRef is set', async function () {
+      let result = buildNameFromEnv._githubRunDesc(
+        'refs/pulls/123/merge',
+        'refs/heads/feature-branch-1'
+      );
+      assert.equal(result, 'PR_123');
+    });
 
-      let result = buildNameFromEnv();
-      assert.equal(result, 'PR_123_ci_212_test');
+    it('uses the branch name when headRef is not set', async function () {
+      let result = buildNameFromEnv._githubRunDesc(
+        'refs/heads/feature-branch-1'
+      );
+      assert.equal(result, 'feature-branch-1');
+    });
 
-      delete process.env.GITHUB_RUN_ID;
-      delete process.env.GITHUB_REF;
-      delete process.env.GITHUB_HEAD_REF;
-      delete process.env.GITHUB_WORKFLOW;
-      delete process.env.GITHUB_JOB;
-    }
+    it('uses the tagName when headRef is not set', async function () {
+      let result = buildNameFromEnv._githubRunDesc('refs/tags/v1.0.0');
+      assert.equal(result, 'v1.0.0');
+    });
   });
 
-  it('replaces spaces in workflow name', async function () {
-    // Can only be tested not under GitHub Actions
-    if (!process.env.CI) {
-      process.env.GITHUB_RUN_ID = '212';
-      process.env.GITHUB_REF = 'refs/heads/feature-branch-1';
-      process.env.GITHUB_WORKFLOW = 'spacey ci';
-      process.env.GITHUB_JOB = 'test';
+  describe('_buildNameForGithubActions', function () {
+    it('returns undefined when no runId', async function () {
+      let result = buildNameFromEnv._buildNameForGithubActions({});
+      assert.equal(result, undefined);
+    });
 
-      let result = buildNameFromEnv();
+    it('returns a build name when runId is set', async function () {
+      let result = buildNameFromEnv._buildNameForGithubActions({
+        runId: '212',
+        job: 'test',
+        workflow: 'ci',
+        ref: 'refs/heads/feature-branch-1',
+      });
+      assert.equal(result, 'feature-branch-1_ci_212_test');
+    });
+
+    it('escapes spaces in workflow name', async function () {
+      let result = buildNameFromEnv._buildNameForGithubActions({
+        runId: '212',
+        job: 'test',
+        workflow: 'spacey ci',
+        ref: 'refs/heads/feature-branch-1',
+      });
       assert.equal(result, 'feature-branch-1_spacey_ci_212_test');
-
-      delete process.env.GITHUB_RUN_ID;
-      delete process.env.GITHUB_REF;
-      delete process.env.GITHUB_WORKFLOW;
-      delete process.env.GITHUB_JOB;
-    }
+    });
   });
 });
