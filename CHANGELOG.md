@@ -2,6 +2,16 @@
 
 
 
+
+## v3.0.0 (2024-01-23)
+
+#### :boom: Breaking Change
+* [#75](https://github.com/kategengler/ember-cli-browserstack/pull/75) Upgrade to Ember CLI 4.12; drop support for Node 12 ([@kategengler](https://github.com/kategengler))
+
+#### Committers: 1
+- Katie Gengler ([@kategengler](https://github.com/kategengler))
+
+
 ## v2.1.0 (2024-01-23)
 
 #### :rocket: Enhancement
