@@ -1,6 +1,11 @@
 # CHANGELOG
 
 
+## v2.0.2 (2024-01-23)
+
+- [#66](https://github.com/kategengler/ember-cli-browserstack/pull/66) Replace spaces in github workflow names (@jrjohnson)
+
+
 ## v2.0.1 (2021-08-19)
 
 - Fix release #fail

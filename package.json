@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-browserstack",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Cross-browser testing with BrowserStack",
   "keywords": [
     "ember-addon",
