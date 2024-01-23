@@ -70,10 +70,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: yarn install --frozen-lockfile --non-interactive
-      - run: yarn browserstack:connect
-      - run: yarn test:ember:browserstack
-      - run: yarn browserstack:results
-      - run: yarn browserstack:disconnect
+      - run: DEBUG=ember-cli-browserstack* yarn browserstack:connect
+      - run: DEBUG=ember-cli-browserstack* yarn test:ember:browserstack
+      - run: DEBUG=ember-cli-browserstack* yarn browserstack:results
+      - run: DEBUG=ember-cli-browserstack* yarn browserstack:disconnect
 
   publish:
     name: Publish to npm
