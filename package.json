@@ -38,6 +38,7 @@
   "dependencies": {
     "browserstack": "^1.6.1",
     "browserstack-local": "^1.4.8",
+    "debug": "^4.3.4",
     "rsvp": "^4.8.5",
     "yargs": "^17.1.1"
   },
