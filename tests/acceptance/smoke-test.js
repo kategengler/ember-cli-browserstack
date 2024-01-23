@@ -8,6 +8,6 @@ module('Acceptance | smoke', function (hooks) {
   test('smoke test', async function (assert) {
     await visit('/');
 
-    assert.equal(currentURL(), '/');
+    assert.strictEqual(currentURL(), '/');
   });
 });
