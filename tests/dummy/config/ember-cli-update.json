@@ -2,17 +2,16 @@
   "schemaVersion": "1.0.0",
   "packages": [
     {
-      "name": "ember-cli",
-      "version": "4.12.1",
+      "name": "@ember-tooling/classic-build-addon-blueprint",
+      "version": "6.12.0",
       "blueprints": [
         {
-          "name": "addon",
-          "outputRepo": "https://github.com/ember-cli/ember-addon-output",
-          "codemodsSource": "ember-addon-codemods-manifest@1",
+          "name": "@ember-tooling/classic-build-addon-blueprint",
           "isBaseBlueprint": true,
           "options": [
-            "--yarn",
-            "--no-welcome"
+            "--welcome",
+            "--pnpm",
+            "--ci-provider=github"
           ]
         }
       ]
