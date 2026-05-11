@@ -131,8 +131,8 @@ export default [
     files: ['node-tests/**/*.js'],
     languageOptions: {
       globals: {
-        ...globals.mocha
-      }
-    }
-  }
+        ...globals.mocha,
+      },
+    },
+  },
 ];
