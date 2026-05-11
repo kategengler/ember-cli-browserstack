@@ -1,6 +1,8 @@
 # ember-cli-browserstack
 
-Facilitates automated testing using BrowserStack
+Facilitates automated testing using BrowserStack in Ember projects and others using testem. 
+
+Has _no_ dependency on ember-cli or any ember packages.
 
 ## Commands
 
