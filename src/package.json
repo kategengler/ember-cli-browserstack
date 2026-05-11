@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-browserstack",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Cross-browser testing with BrowserStack",
   "keywords": [
     "browserstack"
