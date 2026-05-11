@@ -45,10 +45,17 @@ jobs:
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
-      - name: Run Tests
+      - name: Run Node Test
         env:
           BROWSERSTACK_USERNAME: emberclibrowsersDv86d
           # This is in plaintext on purpose. It has no privileged access to anything
           # and allows us to run BrowserStack on pull-requests
           BROWSERSTACK_ACCESS_KEY: aeqUXusvriNdmYFQpbrj
-        run: pnpm test
+        run: pnpm --filter src test:node
+      - name: Run Smoke Test
+        env:
+          BROWSERSTACK_USERNAME: emberclibrowsersDv86d
+          # This is in plaintext on purpose. It has no privileged access to anything
+          # and allows us to run BrowserStack on pull-requests
+          BROWSERSTACK_ACCESS_KEY: aeqUXusvriNdmYFQpbrj
+        run: pnpm --filter test-app browserstack-smoke-test

@@ -16,7 +16,6 @@ import globals from 'globals';
 import js from '@eslint/js';
 
 import eslintConfigPrettier from 'eslint-config-prettier';
-import qunit from 'eslint-plugin-qunit';
 import n from 'eslint-plugin-n';
 
 import babelParser from '@babel/eslint-parser';
@@ -65,13 +64,6 @@ export default [
       },
     },
   },
-  {
-    ...qunit.configs.recommended,
-    files: ['tests/**/*-test.{js,gjs}'],
-    plugins: {
-      qunit,
-    },
-  },
   /**
    * CJS node files
    */
@@ -79,12 +71,12 @@ export default [
     ...n.configs['flat/recommended-script'],
     files: [
       '**/*.cjs',
-      'config/**/*.js', 
+      'config/**/*.js',
       'testem.js',
       'testem*.js',
       'index.js',
       '.prettierrc.js',
-      'lib/**/*.js',
+      '**/*.js',
       'tasks/**/*.js',
       'node-tests/**/*.js',
     ],

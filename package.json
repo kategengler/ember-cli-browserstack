@@ -10,11 +10,7 @@
     "lint:format": "pnpm --filter '*' lint:format",
     "lint:js": "pnpm --filter '*' lint:js",
     "lint:js:fix": "pnpm --filter '*' lint:js:fix",
-    "test:node": "pnpm --filter '*' test:node",
-    "test:browserstack": "pnpm browserstack:connect && pnpm test:ember:browserstack && pnpm browserstack:disconnect && pnpm browserstack:results",
-    "browserstack:connect": "ember browserstack:connect",
-    "browserstack:disconnect": "ember browserstack:disconnect",
-    "browserstack:results": "ember browserstack:results"
+    "test:node": "pnpm --filter '*' test:node"
   },
   "packageManager": "pnpm@10.33.2",
   "engines": {

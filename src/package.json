@@ -3,14 +3,14 @@
   "version": "3.0.0",
   "description": "Cross-browser testing with BrowserStack",
   "keywords": [
-    "ember-addon",
     "browserstack"
   ],
   "repository": "kategengler/ember-cli-browserstack",
   "license": "MIT",
   "author": "Katie Gengler",
   "bin": {
-    "browserstack-launch": "src/tasks/launch-browserstack-browser.js"
+    "browserstack": "bin/browserstack.js",
+    "browserstack-launch": "tasks/launch-browserstack-browser.js"
   },
   "scripts": {
     "format": "prettier . --cache --write",

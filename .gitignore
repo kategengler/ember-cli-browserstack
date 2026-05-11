@@ -8,7 +8,7 @@ node_modules
 # misc
 /.env*
 /.pnp*
-/.eslintcache
+.eslintcache
 /coverage/
 /npm-debug.log*
 /testem.log
@@ -19,4 +19,4 @@ node_modules
 
 /local.log
 
-/browserstack-local.pid
+browserstack-local.pid
