@@ -61,6 +61,11 @@ describe('buildNameFromEnv', function () {
       let result = buildNameFromEnv._githubRunDesc('refs/tags/v1.0.0');
       assert.equal(result, 'v1.0.0');
     });
+
+    it('uses the pr number when headRef is not set', async function () {
+      let result = buildNameFromEnv._githubRunDesc('refs/pull/123/merge');
+      assert.equal(result, 'PR_123');
+    });
   });
 
   describe('_buildNameForGithubActions', function () {
