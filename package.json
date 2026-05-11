@@ -6,11 +6,14 @@
     "format": "pnpm --filter '*' format",
     "lint": "pnpm --filter '*' lint",
     "lint:fix": "pnpm --filter '*' lint:fix",
-    "test": "pnpm --filter '*' test",
     "lint:format": "pnpm --filter '*' lint:format",
     "lint:js": "pnpm --filter '*' lint:js",
     "lint:js:fix": "pnpm --filter '*' lint:js:fix",
+    "test": "pnpm --filter '*' test",
     "test:node": "pnpm --filter '*' test:node"
+  },
+  "devDependencies": {
+    "release-plan": "^0.18.0"
   },
   "packageManager": "pnpm@10.33.2",
   "engines": {
