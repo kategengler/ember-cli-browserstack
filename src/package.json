@@ -19,6 +19,8 @@
     "lint:format": "prettier . --cache --check",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
+    "prepack": "cp ../README.md .",
+    "postpack": "rm -f README.md",
     "test": "pnpm test:node",
     "test:node": "mocha node-tests/**/*-test.js"
   },
