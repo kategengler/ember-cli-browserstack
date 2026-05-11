@@ -1,5 +1,31 @@
 # CHANGELOG
 
+## Release (2026-05-11)
+
+* ember-cli-browserstack 4.0.0 (major)
+
+#### :boom: Breaking Change
+* `ember-cli-browserstack`
+  * [#78](https://github.com/kategengler/ember-cli-browserstack/pull/78) Create a monorepo and make a real test-app and replace ember-cli with custom binary ([@kategengler](https://github.com/kategengler))
+* Other
+  * [#77](https://github.com/kategengler/ember-cli-browserstack/pull/77) Update to latest addon blueprint (default), drop Node < 20.19 ([@kategengler](https://github.com/kategengler))
+
+#### :rocket: Enhancement
+* [#77](https://github.com/kategengler/ember-cli-browserstack/pull/77) Update to latest addon blueprint (default), drop Node < 20.19 ([@kategengler](https://github.com/kategengler))
+* [#76](https://github.com/kategengler/ember-cli-browserstack/pull/76) Handle Events With PR as Ref ([@jrjohnson](https://github.com/jrjohnson))
+
+#### :memo: Documentation
+* [#82](https://github.com/kategengler/ember-cli-browserstack/pull/82) Update README ([@kategengler](https://github.com/kategengler))
+
+#### :house: Internal
+* [#83](https://github.com/kategengler/ember-cli-browserstack/pull/83) Update release-plan actions for locked shas ([@kategengler](https://github.com/kategengler))
+* [#80](https://github.com/kategengler/ember-cli-browserstack/pull/80) Lock actions to shas ([@kategengler](https://github.com/kategengler))
+* [#79](https://github.com/kategengler/ember-cli-browserstack/pull/79) Add release plan ([@kategengler](https://github.com/kategengler))
+
+#### Committers: 2
+- Jon Johnson ([@jrjohnson](https://github.com/jrjohnson))
+- Katie Gengler ([@kategengler](https://github.com/kategengler))
+
 ## v3.0.0 (2024-01-23)
 
 #### :boom: Breaking Change
