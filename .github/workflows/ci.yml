@@ -5,99 +5,50 @@ on:
     branches:
       - main
       - master
-    tags:
-      - v*
   pull_request: {}
 
 concurrency:
   group: ci-${{ github.head_ref || github.ref }}
   cancel-in-progress: true
 
-
 jobs:
-  lint:
+  link:
     name: "Lint"
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 14.x
-      - name: Install Dependencies
-        run: yarn install --frozen-lockfile --non-interactive
-      - name: Lint
-        run: yarn lint
+    timeout-minutes: 10
 
-  node-test:
-    name: "Node Test"
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x]
     steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v4
+      - name: Install Node
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: yarn install --frozen-lockfile --non-interactive
-      - name: Node Tests
+          node-version: 20
+          cache: pnpm
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Lint
+        run: pnpm lint
+
+  test:
+    name: "Tests"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v4
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: pnpm
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Run Tests
         env:
           BROWSERSTACK_USERNAME: emberclibrowsersDv86d
           # This is in plaintext on purpose. It has no privileged access to anything
           # and allows us to run BrowserStack on pull-requests
           BROWSERSTACK_ACCESS_KEY: aeqUXusvriNdmYFQpbrj
-        run: yarn test:node
-
-  smoke-test:
-    name: "Smoke Test"
-    needs: node-test
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x]
-    env:
-      BROWSERSTACK_USERNAME: emberclibrowsersDv86d
-      # This is in plaintext on purpose. It has no privileged access to anything
-      # and allows us to run BrowserStack on pull-requests
-      BROWSERSTACK_ACCESS_KEY: aeqUXusvriNdmYFQpbrj
-      # The following is necessary when using browserstack under matrix builds on Github Actions
-      # The Job ID + Run ID isn't unique across matrix runs and will fail when run simultaneously
-      BROWSERSTACK_LOCAL_ID_SUFFIX: ${{ matrix.node-version }}
-    steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: yarn install --frozen-lockfile --non-interactive
-      - run: DEBUG=ember-cli-browserstack* yarn browserstack:connect
-      - run: DEBUG=ember-cli-browserstack* yarn test:ember:browserstack
-      - run: DEBUG=ember-cli-browserstack* yarn browserstack:results
-      - run: DEBUG=ember-cli-browserstack* yarn browserstack:disconnect
-
-  publish:
-    name: Publish to npm
-    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Install node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 14.x
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: auto-dist-tag
-        run: npx auto-dist-tag@1 --write
-
-      - name: publish to npm
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        run: pnpm test

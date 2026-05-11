@@ -45,14 +45,14 @@ describe('buildNameFromEnv', function () {
     it('uses PR number when headRef is set', async function () {
       let result = buildNameFromEnv._githubRunDesc(
         'refs/pulls/123/merge',
-        'refs/heads/feature-branch-1'
+        'refs/heads/feature-branch-1',
       );
       assert.equal(result, 'PR_123');
     });
 
     it('uses the branch name when headRef is not set', async function () {
       let result = buildNameFromEnv._githubRunDesc(
-        'refs/heads/feature-branch-1'
+        'refs/heads/feature-branch-1',
       );
       assert.equal(result, 'feature-branch-1');
     });
