@@ -1,42 +1,39 @@
 # ember-cli-browserstack
 
-[![Build Status](https://travis-ci.com/kategengler/ember-cli-browserstack.svg?branch=master)](https://travis-ci.com/kategengler/ember-cli-browserstack)
-[![BrowserStack Status](https://automate.browserstack.com/badge.svg?badge_key=bmFTejltaG1DRnNGT2RJa0F2bnZSbUczd2Uyc1lBS05GZFNwMEFkNlFHQT0tLTRwT0xhL0xRSG1NZGpNVnJOUUdxaGc9PQ==--13333fca0d5a32e7e5a0a22366dab3f3018e0b79%)](https://automate.browserstack.com/public-build/bmFTejltaG1DRnNGT2RJa0F2bnZSbUczd2Uyc1lBS05GZFNwMEFkNlFHQT0tLTRwT0xhL0xRSG1NZGpNVnJOUUdxaGc9PQ==--13333fca0d5a32e7e5a0a22366dab3f3018e0b79%)
-
-Facilitates automated testing using BrowserStack with ember-cli projects
+Facilitates automated testing using BrowserStack
 
 ## Commands
 
-### `ember browserstack:connect`
+### `browserstack connect`
 
 - Opens a local tunnel to BrowserStack
 
-### `ember browserstack:disconnect`
+### `browserstack disconnect`
 
 - Closes the local tunnel to BrowserStack
 
-### `ember browserstack:results`
+### `browserstack results`
 
 - Optional argument `--build <buildName>`
 - Returns results for a particular build, with links to the build data on BrowserStack
 
-### `ember browserstack:browsers`
+### `browserstack browsers`
 
 - Returns the list of available browsers
 
-## How to set up automated testing with BrowserStack using this addon
+## How to set up automated testing with BrowserStack
 
-1. `ember install ember-cli-browserstack`
+1. `npm install ember-cli-browserstack`
 1. Register for a BrowserStack account
 1. Set environment variables `BROWSERSTACK_USERNAME` and `BROWSERSTACK_ACCESS_KEY`
-1. Add browsers to your `testem.js`. You can see available browsers by running `ember browserstack:browsers`
+1. Add browsers to your `testem.[c]js`. You can see available browsers by running `npx browserstack browsers`
 
    For example:
 
    ```
    launchers: {
      bs_edge: {
-       exe: 'npx ember-cli-browserstack',
+       exe: 'node_modules/.bin/browserstack-launch',
        args: ['--os', 'Windows', '--osv', '10', '--b', 'edge', '--bv', 'latest', '-t', '1200', '-p',
        'my-project-name', '--u', '<url>'],
        protocol: 'browser'
@@ -49,20 +46,20 @@ Facilitates automated testing using BrowserStack with ember-cli projects
    },
    launch_in_ci: [
      'bs_edge',
-     'Chrome'
+     'bs_chrome'
    ]
    ```
 
-   To see available options run `npx ember-cli-browserstack --help` or see https://www.browserstack.com/automate/capabilities and https://github.com/scottgonzalez/node-browserstack#browser-objects
+   To see available options run `npx browserstack-launch --help` or see https://www.browserstack.com/automate/capabilities and https://github.com/scottgonzalez/node-browserstack#browser-objects
    Not all options are required.
 
-1. Open a tunnel to BrowserStack using `ember browserstack:connect`.
+1. Open a tunnel to BrowserStack using `npx browserstack connect`.
 
    This will create a `browserstack-local.pid` file, necessary for later disconnecting the tunnel.
 
-1. Run tests (`ember test`)
-   You may need to specify `--host 127.0.0.1` and `--test-port=7774` to support Safari
-1. When tests are complete, close the tunnel to BrowserStack using `ember browserstack:disconnect`
+1. Run tests
+   You may need to specify `--host 127.0.0.1` and `--test-port=7774` to support Safari 
+1. When tests are complete, close the tunnel to BrowserStack using `npx browserstack disconnect`
 
 ## Build name
 
@@ -89,9 +86,7 @@ _See for more information: https://www.browserstack.com/local-testing/automate#m
 
 - `git clone <repository-url>` this repository
 - `cd ember-cli-browserstack`
-- `yarn install`
-- `npm link`
-- In another project, `npm link ember-cli-browserstack`
+- `pnpm install`
 
 ## Thanks
 

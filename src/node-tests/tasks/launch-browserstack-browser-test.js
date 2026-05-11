@@ -4,7 +4,7 @@ const { assert } = require('chai');
 describe('launch-browserstack-browser (launcher)', function () {
   this.timeout(5000);
   it('help option outputs options', async function () {
-    let { stdout } = await execa.node('lib/tasks/launch-browserstack-browser', [
+    let { stdout } = await execa.node('tasks/launch-browserstack-browser', [
       '--help',
     ]);
     assert.include(stdout, 'Options:');

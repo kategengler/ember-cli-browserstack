@@ -3,12 +3,12 @@
 /declarations/
 
 # dependencies
-/node_modules/
+node_modules
 
 # misc
 /.env*
 /.pnp*
-/.eslintcache
+.eslintcache
 /coverage/
 /npm-debug.log*
 /testem.log
@@ -19,4 +19,4 @@
 
 /local.log
 
-/browserstack-local.pid
+browserstack-local.pid

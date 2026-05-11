@@ -1,0 +1,51 @@
+{
+  "name": "ember-cli-browserstack",
+  "version": "3.0.0",
+  "description": "Cross-browser testing with BrowserStack",
+  "keywords": [
+    "browserstack"
+  ],
+  "repository": "kategengler/ember-cli-browserstack",
+  "license": "MIT",
+  "author": "Katie Gengler",
+  "bin": {
+    "browserstack": "bin/browserstack.js",
+    "browserstack-launch": "tasks/launch-browserstack-browser.js"
+  },
+  "scripts": {
+    "format": "prettier . --cache --write",
+    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
+    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto && pnpm format",
+    "lint:format": "prettier . --cache --check",
+    "lint:js": "eslint . --cache",
+    "lint:js:fix": "eslint . --fix",
+    "test": "pnpm test:node",
+    "test:node": "mocha node-tests/**/*-test.js"
+  },
+  "dependencies": {
+    "browserstack": "^1.6.1",
+    "browserstack-local": "^1.4.8",
+    "debug": "^4.3.4",
+    "rsvp": "^4.8.5",
+    "yargs": "^17.1.1"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.28.6",
+    "@babel/plugin-proposal-decorators": "^7.29.0",
+    "@eslint/js": "^9.39.4",
+    "chai": "^4.3.4",
+    "concurrently": "^9.2.1",
+    "eslint": "^9.39.4",
+    "eslint-config-prettier": "^9.1.2",
+    "eslint-plugin-n": "^17.24.0",
+    "execa": "^5.1.1",
+    "globals": "^15.15.0",
+    "mocha": "^9.0.3",
+    "prettier": "^3.8.1",
+    "prettier-plugin-ember-template-tag": "^2.1.4"
+  },
+  "packageManager": "pnpm@10.33.2",
+  "engines": {
+    "node": ">= 20.19"
+  }
+}
