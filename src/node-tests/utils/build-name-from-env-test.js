@@ -1,5 +1,5 @@
 const { assert } = require('chai');
-const buildNameFromEnv = require('../../lib/utils/build-name-from-env');
+const buildNameFromEnv = require('../../utils/build-name-from-env');
 
 describe('buildNameFromEnv', function () {
   it('defaults to random crypto when no env vars', async function () {

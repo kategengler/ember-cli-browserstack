@@ -1,5 +1,5 @@
 const { assert } = require('chai');
-const localIdentifier = require('../../lib/utils/local-identifier');
+const localIdentifier = require('../../utils/local-identifier');
 
 describe('localIdentifier', function () {
   it('use BROWSERSTACK_LOCAL_IDENTIFIER if set', async function () {

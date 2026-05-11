@@ -1,104 +1,23 @@
 {
-  "name": "ember-cli-browserstack",
-  "version": "3.0.0",
-  "description": "Cross-browser testing with BrowserStack",
-  "keywords": [
-    "ember-addon",
-    "browserstack"
-  ],
+  "private": true,
   "repository": "kategengler/ember-cli-browserstack",
   "license": "MIT",
-  "author": "Katie Gengler",
-  "bin": {
-    "browserstack-launch": "lib/tasks/launch-browserstack-browser.js"
-  },
-  "directories": {
-    "doc": "doc",
-    "test": "tests"
-  },
   "scripts": {
-    "build": "ember build --environment=production",
-    "format": "prettier . --cache --write",
-    "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
-    "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto && pnpm format",
-    "lint:format": "prettier . --cache --check",
-    "lint:hbs": "ember-template-lint .",
-    "lint:hbs:fix": "ember-template-lint . --fix",
-    "lint:js": "eslint . --cache",
-    "lint:js:fix": "eslint . --fix",
-    "start": "ember serve",
-    "test": "pnpm test:browserstack && pnpm test:node",
-    "test:ember": "ember test",
-    "test:ember:browserstack": "ember test --test-port=7774 --host=127.0.0.1 --config-file=testem.browserstack.js",
+    "format": "pnpm --filter '*' format",
+    "lint": "pnpm --filter '*' lint",
+    "lint:fix": "pnpm --filter '*' lint:fix",
+    "test": "pnpm --filter '*' test",
+    "lint:format": "pnpm --filter '*' lint:format",
+    "lint:js": "pnpm --filter '*' lint:js",
+    "lint:js:fix": "pnpm --filter '*' lint:js:fix",
+    "test:node": "pnpm --filter '*' test:node",
     "test:browserstack": "pnpm browserstack:connect && pnpm test:ember:browserstack && pnpm browserstack:disconnect && pnpm browserstack:results",
-    "test:node": "mocha node-tests/**/*-test.js",
     "browserstack:connect": "ember browserstack:connect",
     "browserstack:disconnect": "ember browserstack:disconnect",
     "browserstack:results": "ember browserstack:results"
   },
-  "dependencies": {
-    "@babel/core": "^7.29.0",
-    "ember-cli-babel": "^8.3.1",
-    "browserstack": "^1.6.1",
-    "browserstack-local": "^1.4.8",
-    "debug": "^4.3.4",
-    "rsvp": "^4.8.5",
-    "yargs": "^17.1.1"
-  },
-  "devDependencies": {
-    "@babel/eslint-parser": "^7.28.6",
-    "@babel/plugin-proposal-decorators": "^7.29.0",
-    "@ember/optional-features": "^2.3.0",
-    "@ember/test-helpers": "^5.4.1",
-    "@embroider/macros": "^1.20.2",
-    "@embroider/test-setup": "^4.0.0",
-    "@eslint/js": "^9.39.4",
-    "@glimmer/component": "^2.1.1",
-    "@glimmer/tracking": "^1.1.2",
-    "broccoli-asset-rev": "^3.0.0",
-    "chai": "^4.3.4",
-    "concurrently": "^9.2.1",
-    "ember-auto-import": "^2.13.1",
-    "ember-cli": "~6.12.0",
-    "ember-cli-clean-css": "^3.0.0",
-    "ember-cli-dependency-checker": "^3.4.0",
-    "ember-cli-deprecation-workflow": "^3.4.0",
-    "ember-cli-htmlbars": "^7.0.1",
-    "ember-cli-inject-live-reload": "^2.1.0",
-    "ember-cli-sri": "^2.1.1",
-    "ember-cli-terser": "^4.0.2",
-    "ember-load-initializers": "^3.0.1",
-    "ember-qunit": "^9.0.4",
-    "ember-resolver": "^13.2.0",
-    "ember-source": "~6.12.0",
-    "ember-source-channel-url": "^3.0.0",
-    "ember-template-lint": "^6.1.0",
-    "ember-try": "^4.0.0",
-    "eslint": "^9.39.4",
-    "eslint-config-prettier": "^9.1.2",
-    "eslint-plugin-ember": "^12.7.5",
-    "eslint-plugin-n": "^17.24.0",
-    "eslint-plugin-qunit": "^8.2.6",
-    "execa": "^5.1.1",
-    "globals": "^15.15.0",
-    "loader.js": "^4.7.0",
-    "mocha": "^9.0.3",
-    "prettier": "^3.8.1",
-    "prettier-plugin-ember-template-tag": "^2.1.4",
-    "qunit": "^2.25.0",
-    "qunit-dom": "^3.5.0",
-    "stylelint": "^16.26.1",
-    "stylelint-config-standard": "^36.0.1",
-    "webpack": "^5.106.0"
-  },
   "packageManager": "pnpm@10.33.2",
   "engines": {
     "node": ">= 20.19"
-  },
-  "ember": {
-    "edition": "octane"
-  },
-  "ember-addon": {
-    "configPath": "tests/dummy/config"
   }
 }

@@ -1,8 +1,5 @@
 # ember-cli-browserstack
 
-[![Build Status](https://travis-ci.com/kategengler/ember-cli-browserstack.svg?branch=master)](https://travis-ci.com/kategengler/ember-cli-browserstack)
-[![BrowserStack Status](https://automate.browserstack.com/badge.svg?badge_key=bmFTejltaG1DRnNGT2RJa0F2bnZSbUczd2Uyc1lBS05GZFNwMEFkNlFHQT0tLTRwT0xhL0xRSG1NZGpNVnJOUUdxaGc9PQ==--13333fca0d5a32e7e5a0a22366dab3f3018e0b79%)](https://automate.browserstack.com/public-build/bmFTejltaG1DRnNGT2RJa0F2bnZSbUczd2Uyc1lBS05GZFNwMEFkNlFHQT0tLTRwT0xhL0xRSG1NZGpNVnJOUUdxaGc9PQ==--13333fca0d5a32e7e5a0a22366dab3f3018e0b79%)
-
 Facilitates automated testing using BrowserStack with ember-cli projects
 
 ## Commands
@@ -89,7 +86,7 @@ _See for more information: https://www.browserstack.com/local-testing/automate#m
 
 - `git clone <repository-url>` this repository
 - `cd ember-cli-browserstack`
-- `yarn install`
+- `pnpm install`
 - `npm link`
 - In another project, `npm link ember-cli-browserstack`
 

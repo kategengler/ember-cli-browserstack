@@ -15,7 +15,6 @@
 import globals from 'globals';
 import js from '@eslint/js';
 
-import ember from 'eslint-plugin-ember/recommended';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import qunit from 'eslint-plugin-qunit';
 import n from 'eslint-plugin-n';
@@ -36,8 +35,6 @@ const esmParserOptions = {
 export default [
   js.configs.recommended,
   eslintConfigPrettier,
-  ember.configs.base,
-  ember.configs.gjs,
   /**
    * Ignores must be in their own object
    * https://eslint.org/docs/latest/use/configure/ignore
@@ -82,15 +79,11 @@ export default [
     ...n.configs['flat/recommended-script'],
     files: [
       '**/*.cjs',
-      'config/**/*.js',
-      'tests/dummy/config/**/*.js',
+      'config/**/*.js', 
       'testem.js',
       'testem*.js',
       'index.js',
       '.prettierrc.js',
-      '.stylelintrc.js',
-      '.template-lintrc.js',
-      'ember-cli-build.js',
       'lib/**/*.js',
       'tasks/**/*.js',
       'node-tests/**/*.js',
